@@ -1,5 +1,5 @@
 # Bug-Tracker
-Simple Ticketing / Tasks, Bug Tracker like APIs
+Node.js Simple Ticketing / Tasks, Bug Tracker like APIs
 
 # Why?
 This is a personal backend project created to practice my node.js learning. 
