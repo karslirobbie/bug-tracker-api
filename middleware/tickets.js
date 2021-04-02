@@ -22,7 +22,9 @@ const validTicketBody = (req, res, next) => {
     status: Joi.string().required().max(20),
     assignedTo: Joi.string(),
     createdBy: Joi.string().required(),
-    project: Joi.string().required().max(155)
+    project: Joi.string().required().max(155),
+    sprint: Joi.string(),
+    urgency: Joi.string().required()
   })
 
   const { error } = schema.validate(req.body)
@@ -43,6 +45,8 @@ const validTicketQuery = (req, res, next) => {
     assignedTo: Joi.string(),
     createdBy: Joi.string(),
     project: Joi.string(),
+    sprint: Joi.string(),
+    urgency: Joi.string()
   })
 
   const { error } = schema.validate(req.query);

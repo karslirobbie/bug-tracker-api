@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const { departmentSchema } = require('../models/department')
+
 
 
 
@@ -14,6 +14,8 @@ const ticketSchema = new mongoose.Schema({
   assignedTo: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   project: { type: mongoose.Schema.Types.ObjectId, ref: 'Project' },
+  sprint: String,
+  urgency: String
 })
 
 const Ticket = mongoose.model('Ticket', ticketSchema)
