@@ -67,6 +67,8 @@ router.post('/', [validTicketBody, authenticate], async (req, res) => {
     assignedTo: req.body.assignedTo,
     createdBy: req.body.createdBy,
     project: req.body.project,
+    sprint: req.body.sprint,
+    urgency: req.body.urgency
   })
 
   await ticket.save()
@@ -86,6 +88,8 @@ router.put('/:id', [validId, validTicketBody, authenticate], async (req, res) =>
       assignedTo: req.body.assignedTo,
       createdBy: req.body.createdBy,
       project: req.body.project,
+      sprint: req.body.sprint,
+      urgency: req.body.urgency
     }, { new: true, select: "-__v" })
 
 

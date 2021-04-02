@@ -1,4 +1,2 @@
 node_modules/
-error.log
-exceptions.log
-rejections.log
+*.log
