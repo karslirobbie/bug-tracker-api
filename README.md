@@ -1,4 +1,4 @@
-# Bug-Tracker
+# Bug-Tracker API
 Node.js Simple Ticketing / Tasks, Bug Tracker like APIs
 
 # Why?
