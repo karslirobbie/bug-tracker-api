@@ -4,7 +4,7 @@ const Joi = require("joi")
 const validProjectBody = (req, res, next) => {
   const schema = Joi.object({
     title: Joi.string().required().max(55),
-    alias: Joi.string().required().max(5),
+    alias: Joi.string().required().max(6),
     description: Joi.string().max(255),
     createdBy: Joi.string().required(),
     startedDate: Joi.string(),
@@ -24,7 +24,7 @@ const validProjectBody = (req, res, next) => {
 const validProjectQuery = (req, res, next) => {
   const schema = Joi.object({
     title: Joi.string().max(20),
-    alias: Joi.string().max(5),
+    alias: Joi.string().max(6),
     description: Joi.string().max(20),
     dateCreated: Joi.string(),
     createdBy: Joi.string().max(20),

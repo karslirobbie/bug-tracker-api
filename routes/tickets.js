@@ -60,7 +60,7 @@ router.get('/:id', validId, async (req, res) => {
 
 router.post('/', [validTicketBody, authenticate], async (req, res) => {
   const random = Math.floor((Math.random() * 1000) + 1);
-  const tag = `${req.body.alias}-${random}`
+  const tag = `${req.body.tag}-${random}`
 
   const ticket = new Ticket({
     tag,
@@ -72,7 +72,6 @@ router.post('/', [validTicketBody, authenticate], async (req, res) => {
     assignedTo: req.body.assignedTo,
     createdBy: req.body.createdBy,
     project: req.body.project,
-    sla: req.body.sla,
     urgency: req.body.urgency,
     attachments: req.body.attachments
   })
@@ -94,7 +93,6 @@ router.put('/:id', [validId, validTicketBody, authenticate], async (req, res) =>
       assignedTo: req.body.assignedTo,
       createdBy: req.body.createdBy,
       project: req.body.project,
-      sla: req.body.sla,
       urgency: req.body.urgency,
       attachments: req.body.attachments
     }, { new: true, select: "-__v" })

@@ -15,8 +15,6 @@ const ticketSchema = new mongoose.Schema({
   assignedTo: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   project: { type: mongoose.Schema.Types.ObjectId, ref: 'Project' },
-  alias: String,
-  sla: String,
   urgency: String,
   attachments: [String]
 })
