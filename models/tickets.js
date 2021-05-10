@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 
 
 const ticketSchema = new mongoose.Schema({
-  tag: String,
+  tag: String,          /** tag from project alias **/
   title: String,
   description: String,
   comments: [String],

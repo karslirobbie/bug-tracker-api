@@ -63,7 +63,7 @@ router.post('/', [validTicketBody, authenticate], async (req, res) => {
   const tag = `${req.body.tag}-${random}`
 
   const ticket = new Ticket({
-    tag,
+    tag,                      /** tag from project alias **/
     title: req.body.title,
     description: req.body.description,
     type: req.body.type,

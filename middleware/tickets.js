@@ -23,7 +23,7 @@ const validTicketBody = (req, res, next) => {
     assignedTo: Joi.string(),
     createdBy: Joi.string().required(),
     project: Joi.string().required().max(155),
-    tag: Joi.string().required(),
+    tag: Joi.string().required(),         /** tag from project alias **/
     urgency: Joi.string().required(),
     attachments: Joi.array().items(Joi.string())
   })
