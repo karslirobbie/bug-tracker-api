@@ -10,8 +10,8 @@ const validProjectBody = (req, res, next) => {
     startedDate: Joi.string(),
     closedDate: Joi.string(),
     status: Joi.string().required().max(20),
-    teams: Joi.array().items(Joi.string()),
-    departments: Joi.array().required(),
+    team: Joi.string(),
+    department: Joi.string().required(),
   })
 
   const { error } = schema.validate(req.body);
@@ -31,8 +31,8 @@ const validProjectQuery = (req, res, next) => {
     startedDate: Joi.string(),
     closedDate: Joi.string(),
     status: Joi.string().max(10),
-    teams: Joi.array().items(Joi.string()),
-    departments: Joi.array()
+    team: Joi.string(),
+    department: Joi.string()
   })
 
   const { error } = schema.validate(req.query);

@@ -14,11 +14,11 @@ router.get('/', [validTicketQuery, queryString], async (req, res) => {
     .populate("assignedTo", "name -_id")
     .populate("assignee", "name -_id")
     .populate("createdBy", "name -_id")
-    .populate("project", "title teams departments -_id")
+    .populate("project", "title team department -_id")
     .populate({
       path: 'project',
       populate: {
-        path: 'teams'
+        path: 'team'
       }
     })
     .select("-__v")
@@ -38,14 +38,14 @@ router.get('/:id', validId, async (req, res) => {
     .populate({
       path: 'project',
       populate: {
-        path: 'teams',
+        path: 'team',
         select: 'name -_id'
       },
     })
     .populate({
       path: 'project',
       populate: {
-        path: 'departments',
+        path: 'department',
         select: 'name -_id'
       },
     })
