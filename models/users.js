@@ -7,13 +7,13 @@ const userSchema = new mongoose.Schema({
   name: String,
   email: String,
   password: { type: String },
-  roles: [String],
+  role: String,
   team: { type: mongoose.Schema.Types.ObjectId, ref: "Team" },
   projects: [{ type: mongoose.Schema.Types.ObjectId, ref: "Project" }]
 })
 
 userSchema.methods.generateToken = function () {
-  return jwt.sign({ _id: this._id, email: this.email, roles: this.roles }, config.get('jwtToken'))
+  return jwt.sign({ _id: this._id, email: this.email, role: this.role }, config.get('jwtToken'))
 }
 
 const User = mongoose.model('User', userSchema)

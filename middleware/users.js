@@ -9,7 +9,7 @@ const validUserBody = (req, res, next) => {
     email: Joi.string().email().required(),
     password: Joi.string().min(5).max(22).required(),
     team: Joi.string(),
-    roles: Joi.array(),
+    role: Joi.string(),
     projects: Joi.array()
   })
 
@@ -25,7 +25,7 @@ const validUserQuery = (req, res, next) => {
     name: Joi.string().max(55),
     email: Joi.string().email(),
     team: Joi.string(),
-    roles: Joi.array().items(Joi.string()),
+    role: Joi.string(),
     projects: Joi.array().items(Joi.string())
   })
 

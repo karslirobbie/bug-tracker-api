@@ -35,34 +35,34 @@ router.get('/:id', validId, async (req, res) => {
 
 
 router.post('/', validUserBody, async (req, res) => {
-  const { name, email, password, team, roles, projects } = req.body
+  const { name, email, password, team, role, projects } = req.body
   const hash = await hashPassword(password)
 
   const existingUser = await User.findOne({ email })
   if (existingUser) return res.status(400).send('User already exists.');
 
   const user = new User({
-    name, email, password: hash, team, roles, projects
+    name, email, password: hash, team, role, projects
   })
 
   await user.save()
   const token = user.generateToken();
-  res.header('x-auth-token', token).send(_pick(user, ["name", "email", "team", "roles", "projects"]));
+  res.header('x-auth-token', token).send(_pick(user, ["name", "email", "team", "role", "projects"]));
 })
 
 
 
 router.put('/:id', [validId, validUserBody, authenticate], async (req, res) => {
-  const { name, email, password, team, roles, projects } = req.body
+  const { name, email, password, team, role, projects } = req.body
   const hash = await hashPassword(password)
 
   const user = await User.findByIdAndUpdate(req.params.id, {
     name, email, password: hash,
-    team, roles, projects
+    team, role, projects
   }, { new: true, select: '-__v' })
 
   if (!user) return res.status(404).send('No User found with the given ID');
-  res.send(_pick(user, ["name", "email", "team", "roles", "projects"]))
+  res.send(_pick(user, ["name", "email", "team", "role", "projects"]))
 })
 
 
@@ -71,7 +71,7 @@ router.delete('/:id', [validId, authenticate, admin], async (req, res) => {
   const user = await User.findByIdAndRemove(req.params.id);
 
   if (!user) return res.status(404).send('No user found with the given ID');
-  res.send(_pick(user, ["name", "email", "team", "roles", "projects"]))
+  res.send(_pick(user, ["name", "email", "team", "role", "projects"]))
 })
 
 
