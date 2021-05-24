@@ -11,7 +11,7 @@ router.post('/', validCredentials, async (req, res) => {
   const user = await User.findOne({ email: req.body.email })
   if (!user) return res.status('404').send('Incorrect username or password.')
 
-  const result = bcrypt.compare(req.body.password, user.password);
+  const result = bcrypt.compareSync(req.body.password, user.password);
   if (!result) return res.status('404').send('Incorrect username or password')
 
   const auth = new Auth({

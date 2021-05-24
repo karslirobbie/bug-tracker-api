@@ -7,7 +7,6 @@ const ticketSchema = new mongoose.Schema({
   tag: String,          /** tag from project alias **/
   title: String,
   description: String,
-  comments: [String],
   type: String,
   status: String,
   dateCreated: { type: Date, default: Date.now() },
@@ -18,6 +17,8 @@ const ticketSchema = new mongoose.Schema({
   urgency: String,
   attachments: [String]
 })
+
+
 
 const Ticket = mongoose.model('Ticket', ticketSchema)
 

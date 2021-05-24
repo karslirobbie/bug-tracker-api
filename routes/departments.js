@@ -1,7 +1,7 @@
-const { validDepartmentBody, validDepartmentQuery } = require('../middleware/department')
+const { validDepartmentBody, validDepartmentQuery } = require('../middleware/departments')
 const { queryString } = require('../middleware/queries')
 const { authenticate } = require('../middleware/auth')
-const { Department } = require('../models/department')
+const { Department } = require('../models/departments')
 const { validId } = require('../middleware/tickets')
 const admin = require('../middleware/admin')
 const express = require('express');
